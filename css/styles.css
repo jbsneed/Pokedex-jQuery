@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Chilanka", cursive;
+  font-size: 30px;
+  line-height: 1;
+  color: #fff;
+  background-color: #2a75bb;
+}
+
+.selected {
+  border: 5px #ffcb05 solid;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#modal-container {
+  display: none;
+  position: absolute;
+}
+
+button {
+  display: block;
+  font-family: inherit;
+  padding: 5px;
+  border-radius: 3px;
+}
+button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  font-size: 36px;
+  transition: 0.9s opacity, 0.9s font-size;
+}
+
+.modal-close {
+  float: right;
+  -webkit-appearance: none;
+  border: 0;
+  background: none;
+  color: #000;
+  text-decoration: underline;
+}
+
+#modal-container.is-visible {
+  font-family: inherit;
+  display: block;
+  height: 340px;
+  width: 400px;
+  position: fixed;
+  left: 50%;
+  margin-left: -200px;
+  top: 50%;
+  margin-top: -170px;
+  padding: 5px;
+  background: #ffcb05;
+  /* to show it above other content */
+  z-index: 999;
+  /*center modal*/
+  display: grid;
+  border: 5px solid #000;
+  overflow: auto;
+}
+
+h3 {
+  text-decoration: underline;
+  text-align: center;
+}
+
+p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  font-size: 24px;
+}
+.page-header {
+  display: flex;
+  justify-content: center;
+}
