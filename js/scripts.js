@@ -1,6 +1,6 @@
 var pokemonRepository = (function() {
   var repository = [];
-  var apiUrl = "https://pokeapi.co/api/v2/pokemon/";
+  var apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
   function add(pokemon) {
     if (typeof pokemon === "object") {
@@ -103,6 +103,22 @@ var pokemonRepository = (function() {
     $modalContainer.removeClass("is-visible");
   }
 
+  //closes modal when escape key is pressed//
+  $(document).on("keydown", function(event) {
+    if (event.key === "Escape") {
+      pokemonRepository.hideModal();
+    }
+  });
+
+  //closes modal when clicked outside of it//
+  var $bodyContainer = $("body");
+  $bodyContainer.click(function(e) {
+    var target = e.target;
+    if (!$(target).closest("#modal-container").length) {
+      pokemonRepository.hideModal();
+    }
+  });
+
   return {
     add: add,
     getAll: getAll,
@@ -113,23 +129,6 @@ var pokemonRepository = (function() {
     showDetails: showDetails,
     hideModal: hideModal
   };
-
-  //closes modal when escape key is pressed//
-  window.keydown(function(e) {
-    var $modalContainer = $("#modal-container");
-    if (e.which === "Escape" && $($modalContainer).hasClass("is-visible")) {
-      pokemonRepository.hideModal();
-    }
-  });
-
-  //closes modal when clicked outside of it//
-  var $mainContainer = $(".pokemon-list");
-  $mainContainer.click(function(e) {
-    var target = e.target;
-    if (target !== $mainContainer) {
-      pokemonRepository.hideModal();
-    }
-  });
 })();
 
 //lists all pokemon on main page//
