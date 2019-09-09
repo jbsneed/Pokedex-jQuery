@@ -5,7 +5,7 @@
 body {
   font-family: "Chilanka", cursive;
   font-size: 30px;
-  line-height: 1;
+  line-height: 2;
   color: #fff;
   background-color: #2a75bb;
 }
@@ -24,10 +24,10 @@ ul {
 }
 
 button {
-  display: block;
   font-family: inherit;
   padding: 5px;
   border-radius: 3px;
+  background-color: #ffcb05;
 }
 button:hover {
   cursor: pointer;
@@ -71,13 +71,24 @@ h3 {
 }
 
 p {
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   font-style: italic;
-  font-size: 24px;
+  font-size: 20px;
 }
 .page-header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+}
+.main-container {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+}
+.pokemon-picture {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
