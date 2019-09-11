@@ -4,14 +4,14 @@
 
 body {
   font-family: "Chilanka", cursive;
-  font-size: 30px;
-  line-height: 2;
+  font-size: 32px;
+  line-height: 3;
   color: #fff;
-  background-color: #2a75bb;
+  background-color: #d3d3d3;
 }
 
 .selected {
-  border: 5px #ffcb05 solid;
+  border: 10px #fff solid;
 }
 
 ul {
@@ -25,24 +25,33 @@ ul {
 
 button {
   font-family: inherit;
+  font-size: inherit;
+  margin: 5px;
   padding: 5px;
-  border-radius: 3px;
-  background-color: #ffcb05;
+  border-radius: 10px;
+  background-color: #3b4cca;
+  color: #fff;
+  text-align: left;
 }
 button:hover {
   cursor: pointer;
   opacity: 0.8;
-  font-size: 36px;
+  font-size: 42px;
   transition: 0.9s opacity, 0.9s font-size;
 }
 
 .modal-close {
   float: right;
+  font-size: 14px;
   -webkit-appearance: none;
   border: 0;
   background: none;
   color: #000;
   text-decoration: underline;
+}
+.modal-close:hover {
+  font-size: 18px;
+  transition: 0.9s font-size;
 }
 
 #modal-container.is-visible {
@@ -56,12 +65,12 @@ button:hover {
   top: 50%;
   margin-top: -170px;
   padding: 5px;
-  background: #ffcb05;
+  background: #3b4cca;
   /* to show it above other content */
   z-index: 999;
   /*center modal*/
   display: grid;
-  border: 5px solid #000;
+  border: 10px solid #ffcb05;
   overflow: auto;
 }
 
@@ -72,23 +81,23 @@ h3 {
 
 p {
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-style: italic;
-  font-size: 20px;
 }
 .page-header {
   display: flex;
   justify-content: flex-start;
 }
-.main-container {
-  display: flex;
-  width: 100%;
-  padding: 10px;
-}
 .pokemon-picture {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+ul > li {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+}
+
+.pokemon-list__item {
+  line-height: 1;
 }
