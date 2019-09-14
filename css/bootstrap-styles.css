@@ -4,3 +4,15 @@
   margin-right: auto;
   margin-bottom: 10px;
 }
+
+#pokemon-modal {
+  text-align: center;
+}
+
+.modal-header {
+  font-weight: 700;
+  font-size: 36px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
