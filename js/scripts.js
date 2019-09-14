@@ -32,6 +32,9 @@ var pokemonRepository = (function() {
       .then(function(pokemonDetails) {
         item.height = pokemonDetails.height;
         item.weight = pokemonDetails.weight;
+        item.types = pokemonDetails.types.map(function(pokemon) {
+          return pokemon.type.name;
+        });
         item.imageUrl = pokemonDetails.sprites.front_default;
       })
       .catch(function(e) {
@@ -43,7 +46,7 @@ var pokemonRepository = (function() {
 
   function addListItem(item) {
     var $listItem = $(
-      '<button class="pokemon-list__item list-group-item list-group-item-action" data-toggle="modal" data-target="pokemon-modal"></button>'
+      '<button class="pokemon-list__item list-group-item list-group-item-action" data-toggle="modal" data-target="#pokemon-modal"></button>'
     );
     $listItem.text(item.name);
     $pokemonList.append($listItem);
@@ -56,13 +59,21 @@ var pokemonRepository = (function() {
     pokemonRepository.loadDetails(pokemon).then(function() {
       var modal = $(".modal-body");
 
-      var nameElement = $(".modal-title").text(pokemon.name);
+      var nameElement = $(".modal-header").text(pokemon.name);
 
       var imageElement = $('<img class="pokemon-picture">');
       imageElement.attr("src", pokemon.imageUrl);
 
       var heightElement = $('<p class="pokemon-height"></p>').text(
         "Height: " + pokemon.height
+      );
+
+      var weightElement = $('<p class="pokemon-weight"</p>').text(
+        "Weight: " + pokemon.weight
+      );
+
+      var typesElement = $('<p class="pokemon-types"></p>').text(
+        "Types: " + pokemon.types
       );
 
       if (modal.children().length) {
@@ -72,6 +83,8 @@ var pokemonRepository = (function() {
       modal.append(nameElement);
       modal.append(imageElement);
       modal.append(heightElement);
+      modal.append(weightElement);
+      modal.append(typesElement);
     });
   }
 
