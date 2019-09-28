@@ -56,6 +56,9 @@ var pokemonRepository = (function() {
   }
 
   function showModal(pokemon) {
+    if (modal.children().length) {
+      modal.children().remove();
+    }
     pokemonRepository.loadDetails(pokemon).then(function() {
       var modal = $(".modal-body");
 
@@ -76,9 +79,6 @@ var pokemonRepository = (function() {
         "Types: " + pokemon.types
       );
 
-      if (modal.children().length) {
-        modal.children().remove();
-      }
 
       modal.append(nameElement);
       modal.append(imageElement);
